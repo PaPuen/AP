@@ -20,15 +20,10 @@ namespace TravelTime.Models
             this.TOURs = new HashSet<TOUR>();
         }
     
-        public decimal DESTINATION_ID { get; set; }
+        public decimal ID { get; set; }
         public string NAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TOUR> TOURs { get; set; }
-
-        public override decimal getId()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

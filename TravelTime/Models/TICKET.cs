@@ -14,17 +14,12 @@ namespace TravelTime.Models
 
     public partial class TICKET : EntityBase
     {
-        public decimal TICKET_ID { get; set; }
+        public decimal ID { get; set; }
         public Nullable<decimal> CUSTOMER_ID { get; set; }
         public decimal TOUR_ID { get; set; }
         public Nullable<int> SEETNO { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual TOUR TOUR { get; set; }
-
-        public override decimal getId()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

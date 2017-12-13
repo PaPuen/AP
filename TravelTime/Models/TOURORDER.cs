@@ -20,7 +20,7 @@ namespace TravelTime.Models
             this.CUSTOMERs = new HashSet<CUSTOMER>();
         }
     
-        public decimal ORDER_ID { get; set; }
+        public decimal ID { get; set; }
         public decimal TOUR_ID { get; set; }
         public Nullable<System.DateTime> DATE { get; set; }
         public Nullable<int> NUMOFPEOPLE { get; set; }
@@ -30,10 +30,5 @@ namespace TravelTime.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CUSTOMER> CUSTOMERs { get; set; }
         public virtual TOUR TOUR { get; set; }
-
-        public override decimal getId()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

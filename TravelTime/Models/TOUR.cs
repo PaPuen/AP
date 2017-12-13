@@ -23,7 +23,7 @@ namespace TravelTime.Models
             this.GUIDERs = new HashSet<GUIDER>();
         }
     
-        public decimal TOUR_ID { get; set; }
+        public decimal ID { get; set; }
         public decimal DEPARTURE_ID { get; set; }
         public decimal PROGRAM_ID { get; set; }
         public decimal DESTINATION_ID { get; set; }
@@ -46,10 +46,5 @@ namespace TravelTime.Models
         public virtual ICollection<DRIVER> DRIVERs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GUIDER> GUIDERs { get; set; }
-
-        public override decimal getId()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

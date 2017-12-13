@@ -383,9 +383,9 @@
       <Schema Namespace="AP.TravelTimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CUSTOMER">
           <Key>
-            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CUSTOMER_ID" Nullable="false" Precision="8" Scale="0" Type="Decimal" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Nullable="false" Precision="8" Scale="0" Type="Decimal" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ORDER_ID" Type="Decimal" Precision="8" Scale="0" />
           <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
           <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
@@ -396,26 +396,26 @@
         </EntityType>
         <EntityType Name="DEPARTURE">
           <Key>
-            <PropertyRef Name="DEPARTURE_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DEPARTURE_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_DEPARTURE_DEPARTUR1" FromRole="DEPARTURE" ToRole="TOUR" />
         </EntityType>
         <EntityType Name="DESTINATION">
           <Key>
-            <PropertyRef Name="DESTINATION_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DESTINATION_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_DESTINATI_DESTINAT1" FromRole="DESTINATION" ToRole="TOUR" />
         </EntityType>
         <EntityType Name="DRIVER">
           <Key>
-            <PropertyRef Name="DRIVER_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DRIVER_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
           <Property Name="AGE" Type="Int32" />
           <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -424,9 +424,9 @@
         </EntityType>
         <EntityType Name="GUIDER">
           <Key>
-            <PropertyRef Name="GUIDER_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="GUIDER_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
           <Property Name="AGE" Type="Int32" />
           <Property Name="PERSONALID" Type="Decimal" Precision="8" Scale="0" />
@@ -435,18 +435,18 @@
         </EntityType>
         <EntityType Name="PROGRAM">
           <Key>
-            <PropertyRef Name="PROGRAM_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="PROGRAM_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="DETAILS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SERVICEPROVIDERs" Relationship="Self.SERVICES" FromRole="PROGRAM" ToRole="SERVICEPROVIDER" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_TOUR_PROG_PROGRAM1" FromRole="PROGRAM" ToRole="TOUR" />
         </EntityType>
         <EntityType Name="SERVICEPROVIDER">
           <Key>
-            <PropertyRef Name="SERVICE_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="SERVICE_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="COMPANYNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CONTACTNAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
@@ -457,9 +457,9 @@
         </EntityType>
         <EntityType Name="TICKET">
           <Key>
-            <PropertyRef Name="TICKET_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="TICKET_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="CUSTOMER_ID" Type="Decimal" Precision="8" Scale="0" />
           <Property Name="TOUR_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="SEETNO" Type="Int32" />
@@ -468,9 +468,9 @@
         </EntityType>
         <EntityType Name="TOURORDER">
           <Key>
-            <PropertyRef Name="ORDER_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ORDER_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="TOUR_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="DATE" Type="DateTime" Precision="3" />
           <Property Name="NUMOFPEOPLE" Type="Int32" />
@@ -481,9 +481,9 @@
         </EntityType>
         <EntityType Name="TRANSPORT">
           <Key>
-            <PropertyRef Name="TRANS_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="TRANS_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MOREINFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_TRANSPORT_TRANSPOR1" FromRole="TRANSPORT" ToRole="TOUR" />
@@ -493,7 +493,7 @@
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TOURORDER">
-              <PropertyRef Name="ORDER_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="CUSTOMER">
               <PropertyRef Name="ORDER_ID" />
@@ -505,7 +505,7 @@
           <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CUSTOMER">
-              <PropertyRef Name="CUSTOMER_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TICKET">
               <PropertyRef Name="CUSTOMER_ID" />
@@ -575,9 +575,9 @@
         </EntityContainer>
         <EntityType Name="TOUR">
           <Key>
-            <PropertyRef Name="TOUR_ID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="TOUR_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
           <Property Name="DEPARTURE_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
           <Property Name="PROGRAM_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
           <Property Name="DESTINATION_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
@@ -601,7 +601,7 @@
           <End Type="AP.TravelTimeModel.TOUR" Role="TOUR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DEPARTURE">
-              <PropertyRef Name="DEPARTURE_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TOUR">
               <PropertyRef Name="DEPARTURE_ID" />
@@ -613,7 +613,7 @@
           <End Type="AP.TravelTimeModel.TOUR" Role="TOUR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DESTINATION">
-              <PropertyRef Name="DESTINATION_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TOUR">
               <PropertyRef Name="DESTINATION_ID" />
@@ -625,7 +625,7 @@
           <End Type="AP.TravelTimeModel.TOUR" Role="TOUR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROGRAM">
-              <PropertyRef Name="PROGRAM_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TOUR">
               <PropertyRef Name="PROGRAM_ID" />
@@ -637,7 +637,7 @@
           <End Type="AP.TravelTimeModel.TICKET" Role="TICKET" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TOUR">
-              <PropertyRef Name="TOUR_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TICKET">
               <PropertyRef Name="TOUR_ID" />
@@ -649,7 +649,7 @@
           <End Type="AP.TravelTimeModel.TOUR" Role="TOUR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRANSPORT">
-              <PropertyRef Name="TRANS_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TOUR">
               <PropertyRef Name="TRANS_ID" />
@@ -661,7 +661,7 @@
           <End Type="AP.TravelTimeModel.TOURORDER" Role="TOURORDER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TOUR">
-              <PropertyRef Name="TOUR_ID" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TOURORDER">
               <PropertyRef Name="TOUR_ID" />
@@ -685,7 +685,7 @@
           <EntitySetMapping Name="CUSTOMERs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.CUSTOMER">
               <MappingFragment StoreEntitySet="CUSTOMER">
-                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="ID" ColumnName="CUSTOMER_ID" />
                 <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="PHONE" ColumnName="PHONE" />
@@ -697,7 +697,7 @@
           <EntitySetMapping Name="DEPARTUREs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.DEPARTURE">
               <MappingFragment StoreEntitySet="DEPARTURE">
-                <ScalarProperty Name="DEPARTURE_ID" ColumnName="DEPARTURE_ID" />
+                <ScalarProperty Name="ID" ColumnName="DEPARTURE_ID" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
               </MappingFragment>
@@ -706,7 +706,7 @@
           <EntitySetMapping Name="DESTINATIONs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.DESTINATION">
               <MappingFragment StoreEntitySet="DESTINATION">
-                <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+                <ScalarProperty Name="ID" ColumnName="DESTINATION_ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -714,7 +714,7 @@
           <EntitySetMapping Name="DRIVERs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.DRIVER">
               <MappingFragment StoreEntitySet="DRIVER">
-                <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+                <ScalarProperty Name="ID" ColumnName="DRIVER_ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="AGE" ColumnName="AGE" />
                 <ScalarProperty Name="GENDER" ColumnName="GENDER" />
@@ -725,7 +725,7 @@
           <EntitySetMapping Name="GUIDERs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.GUIDER">
               <MappingFragment StoreEntitySet="GUIDER">
-                <ScalarProperty Name="GUIDER_ID" ColumnName="GUIDER_ID" />
+                <ScalarProperty Name="ID" ColumnName="GUIDER_ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="AGE" ColumnName="AGE" />
                 <ScalarProperty Name="PERSONALID" ColumnName="PERSONALID" />
@@ -736,7 +736,7 @@
           <EntitySetMapping Name="PROGRAMs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.PROGRAM">
               <MappingFragment StoreEntitySet="PROGRAM">
-                <ScalarProperty Name="PROGRAM_ID" ColumnName="PROGRAM_ID" />
+                <ScalarProperty Name="ID" ColumnName="PROGRAM_ID" />
                 <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -744,7 +744,7 @@
           <EntitySetMapping Name="SERVICEPROVIDERs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.SERVICEPROVIDER">
               <MappingFragment StoreEntitySet="SERVICEPROVIDER">
-                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="ID" ColumnName="SERVICE_ID" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
                 <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
                 <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
@@ -757,7 +757,7 @@
           <EntitySetMapping Name="TICKETs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.TICKET">
               <MappingFragment StoreEntitySet="TICKET">
-                <ScalarProperty Name="TICKET_ID" ColumnName="TICKET_ID" />
+                <ScalarProperty Name="ID" ColumnName="TICKET_ID" />
                 <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
                 <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
                 <ScalarProperty Name="SEETNO" ColumnName="SEETNO" />
@@ -767,7 +767,7 @@
           <EntitySetMapping Name="TOURORDERs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.TOURORDER">
               <MappingFragment StoreEntitySet="TOURORDER">
-                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ORDER_ID" />
                 <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
                 <ScalarProperty Name="DATE" ColumnName="DATE" />
                 <ScalarProperty Name="NUMOFPEOPLE" ColumnName="NUMOFPEOPLE" />
@@ -779,7 +779,7 @@
           <EntitySetMapping Name="TRANSPORTs">
             <EntityTypeMapping TypeName="AP.TravelTimeModel.TRANSPORT">
               <MappingFragment StoreEntitySet="TRANSPORT">
-                <ScalarProperty Name="TRANS_ID" ColumnName="TRANS_ID" />
+                <ScalarProperty Name="ID" ColumnName="TRANS_ID" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
                 <ScalarProperty Name="MOREINFO" ColumnName="MOREINFO" />
               </MappingFragment>
@@ -787,10 +787,10 @@
           </EntitySetMapping>
           <AssociationSetMapping Name="SERVICES" TypeName="AP.TravelTimeModel.SERVICES" StoreEntitySet="SERVICES">
             <EndProperty Name="PROGRAM">
-              <ScalarProperty Name="PROGRAM_ID" ColumnName="PROGRAM_ID" />
+              <ScalarProperty Name="ID" ColumnName="PROGRAM_ID" />
             </EndProperty>
             <EndProperty Name="SERVICEPROVIDER">
-              <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+              <ScalarProperty Name="ID" ColumnName="SERVICE_ID" />
             </EndProperty>
           </AssociationSetMapping>
           <EntitySetMapping Name="TOURs">
@@ -805,24 +805,24 @@
                 <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
                 <ScalarProperty Name="PROGRAM_ID" ColumnName="PROGRAM_ID" />
                 <ScalarProperty Name="DEPARTURE_ID" ColumnName="DEPARTURE_ID" />
-                <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+                <ScalarProperty Name="ID" ColumnName="TOUR_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="DRIVE1" TypeName="AP.TravelTimeModel.DRIVE1" StoreEntitySet="DRIVE">
             <EndProperty Name="DRIVER">
-              <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+              <ScalarProperty Name="ID" ColumnName="DRIVER_ID" />
             </EndProperty>
             <EndProperty Name="TOUR">
-              <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+              <ScalarProperty Name="ID" ColumnName="TOUR_ID" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="GUIDE1" TypeName="AP.TravelTimeModel.GUIDE1" StoreEntitySet="GUIDE">
             <EndProperty Name="GUIDER">
-              <ScalarProperty Name="GUIDER_ID" ColumnName="GUIDER_ID" />
+              <ScalarProperty Name="ID" ColumnName="GUIDER_ID" />
             </EndProperty>
             <EndProperty Name="TOUR">
-              <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+              <ScalarProperty Name="ID" ColumnName="TOUR_ID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

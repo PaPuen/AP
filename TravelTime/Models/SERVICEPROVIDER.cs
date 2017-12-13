@@ -20,7 +20,7 @@ namespace TravelTime.Models
             this.PROGRAMs = new HashSet<PROGRAM>();
         }
     
-        public decimal SERVICE_ID { get; set; }
+        public decimal ID { get; set; }
         public string TYPE { get; set; }
         public string COMPANYNAME { get; set; }
         public string CONTACTNAME { get; set; }
@@ -30,10 +30,5 @@ namespace TravelTime.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROGRAM> PROGRAMs { get; set; }
-
-        public override decimal getId()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
