@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d2132535616472890d697e0f2e403a5" Name="Diagram1">
+        <EntityTypeShape EntityType="AP.TravelTimeModel.CUSTOMER" Width="1.5" PointX="10.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.DEPARTURE" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.DESTINATION" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.DRIVER" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.GUIDER" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.PROGRAM" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.SERVICEPROVIDER" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.TICKET" Width="1.5" PointX="12.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.TOURORDER" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.TRANSPORT" Width="1.5" PointX="3.75" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_CUSTOMER_MAKE_ORDE_TOURORDE" ManuallyRouted="false" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TICKET_HOLD_TICK_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="AP.TravelTimeModel.SERVICES" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AP.TravelTimeModel.TOUR" Width="1.5" PointX="6" PointY="6.625" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TOUR_ID_DEPARTURE_DEPARTUR1" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TOUR_ID_DESTINATI_DESTINAT1" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TOUR_ID_TOUR_PROG_PROGRAM1" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TICKET_TICKET_TOUR_ID1" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TOUR_ID_TRANSPORT_TRANSPOR1" />
+        <AssociationConnector Association="AP.TravelTimeModel.FK_TOURORDE_REGISTRAT_TOUR_ID1" />
+        <AssociationConnector Association="AP.TravelTimeModel.DRIVE1" />
+        <AssociationConnector Association="AP.TravelTimeModel.GUIDE1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
