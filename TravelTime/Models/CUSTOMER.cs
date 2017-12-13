@@ -11,6 +11,8 @@ namespace TravelTime.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     public partial class CUSTOMER : EntityBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -18,7 +20,9 @@ namespace TravelTime.Models
         {
             this.TICKETs = new HashSet<TICKET>();
         }
-    
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal ID { get; set; }
         public Nullable<decimal> ORDER_ID { get; set; }
         public string NAME { get; set; }

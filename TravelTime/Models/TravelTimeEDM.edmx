@@ -4,380 +4,380 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="AP.TravelTimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
-        <EntityType Name="CUSTOMER">
-          <Key>
-            <PropertyRef Name="CUSTOMER_ID" />
-          </Key>
-          <Property Name="CUSTOMER_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" StoreGeneratedPattern="Identity" />
-          <Property Name="ORDER_ID" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="NAME" MaxLength="256" Type="char" />
-          <Property Name="PHONE" MaxLength="10" Type="char" />
-          <Property Name="EMAIL" MaxLength="256" Type="char" />
-          <Property Name="DOB" Type="datetime" />
-        </EntityType>
-        <EntityType Name="DEPARTURE">
-          <Key>
-            <PropertyRef Name="DEPARTURE_ID" />
-          </Key>
-          <Property Name="DEPARTURE_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="DESCRIPTION" Type="text" />
-          <Property Name="ADDRESS" Type="text" />
-        </EntityType>
-        <EntityType Name="DESTINATION">
-          <Key>
-            <PropertyRef Name="DESTINATION_ID" />
-          </Key>
-          <Property Name="DESTINATION_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="NAME" MaxLength="256" Type="char" />
-        </EntityType>
-        <EntityType Name="DRIVE">
-          <Key>
-            <PropertyRef Name="TOUR_ID" />
-            <PropertyRef Name="DRIVER_ID" />
-          </Key>
-          <Property Name="TOUR_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="DRIVER_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-        </EntityType>
-        <EntityType Name="DRIVER">
-          <Key>
-            <PropertyRef Name="DRIVER_ID" />
-          </Key>
-          <Property Name="DRIVER_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="NAME" MaxLength="256" Type="char" />
-          <Property Name="AGE" Type="int" />
-          <Property Name="GENDER" MaxLength="1" Type="char" />
-          <Property Name="PERSONALID" Precision="8" Scale="0" Type="numeric" />
-        </EntityType>
-        <EntityType Name="GUIDE">
-          <Key>
-            <PropertyRef Name="TOUR_ID" />
-            <PropertyRef Name="GUIDER_ID" />
-          </Key>
-          <Property Name="TOUR_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="GUIDER_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-        </EntityType>
-        <EntityType Name="GUIDER">
-          <Key>
-            <PropertyRef Name="GUIDER_ID" />
-          </Key>
-          <Property Name="GUIDER_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="NAME" MaxLength="256" Type="char" />
-          <Property Name="AGE" Type="int" />
-          <Property Name="PERSONALID" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="GENDER" MaxLength="1" Type="char" />
-        </EntityType>
-        <EntityType Name="PROGRAM">
-          <Key>
-            <PropertyRef Name="PROGRAM_ID" />
-          </Key>
-          <Property Name="PROGRAM_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="DETAILS" Type="text" />
-        </EntityType>
-        <EntityType Name="SERVICEPROVIDER">
-          <Key>
-            <PropertyRef Name="SERVICE_ID" />
-          </Key>
-          <Property Name="SERVICE_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="TYPE" Type="text" />
-          <Property Name="COMPANYNAME" Type="text" />
-          <Property Name="CONTACTNAME" MaxLength="256" Type="char" />
-          <Property Name="PHONE" MaxLength="10" Type="char" />
-          <Property Name="ADDRESS" Type="text" />
-          <Property Name="MOREINFO" Type="text" />
-        </EntityType>
-        <EntityType Name="SERVICES">
-          <Key>
-            <PropertyRef Name="PROGRAM_ID" />
-            <PropertyRef Name="SERVICE_ID" />
-          </Key>
-          <Property Name="PROGRAM_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="SERVICE_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-        </EntityType>
-        <EntityType Name="TICKET">
-          <Key>
-            <PropertyRef Name="TICKET_ID" />
-          </Key>
-          <Property Name="TICKET_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="CUSTOMER_ID" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="TOUR_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="SEETNO" Type="int" />
-        </EntityType>
-        <EntityType Name="TOUR">
-          <Key>
-            <PropertyRef Name="TOUR_ID" />
-          </Key>
-          <Property Name="TOUR_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="DEPARTURE_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="PROGRAM_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="DESTINATION_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="TRANS_ID" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="FROM" Type="datetime" />
-          <Property Name="TO" Type="datetime" />
-          <Property Name="NAME" MaxLength="256" Type="char" />
-          <Property Name="DESCRIPTION" Type="text" />
-          <Property Name="PRICE" Type="float" />
-        </EntityType>
-        <EntityType Name="TOURORDER">
-          <Key>
-            <PropertyRef Name="ORDER_ID" />
-          </Key>
-          <Property Name="ORDER_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="TOUR_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="DATE" Type="datetime" />
-          <Property Name="NUMOFPEOPLE" Type="int" />
-          <Property Name="TOTALAMOUNT" Type="float" />
-          <Property Name="STATUS" Type="int" />
-        </EntityType>
-        <EntityType Name="TRANSPORT">
-          <Key>
-            <PropertyRef Name="TRANS_ID" />
-          </Key>
-          <Property Name="TRANS_ID" Nullable="false" Precision="8" Scale="0" Type="numeric" />
-          <Property Name="TYPE" Type="text" />
-          <Property Name="MOREINFO" Type="text" />
-        </EntityType>
-        <Association Name="FK_CUSTOMER_MAKE_ORDE_TOURORDE">
-          <End Type="Self.TOURORDER" Multiplicity="0..1" Role="TOURORDER" />
-          <End Type="Self.CUSTOMER" Multiplicity="*" Role="CUSTOMER" />
-          <ReferentialConstraint>
-            <Principal Role="TOURORDER">
-              <PropertyRef Name="ORDER_ID" />
-            </Principal>
-            <Dependent Role="CUSTOMER">
-              <PropertyRef Name="ORDER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DRIVE_DRIVE_TOUR_ID">
-          <End Type="Self.TOUR" Multiplicity="1" Role="TOUR" />
-          <End Type="Self.DRIVE" Multiplicity="*" Role="DRIVE" />
-          <ReferentialConstraint>
-            <Principal Role="TOUR">
-              <PropertyRef Name="TOUR_ID" />
-            </Principal>
-            <Dependent Role="DRIVE">
-              <PropertyRef Name="TOUR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DRIVE_DRIVE2_DRIVER">
-          <End Type="Self.DRIVER" Multiplicity="1" Role="DRIVER" />
-          <End Type="Self.DRIVE" Multiplicity="*" Role="DRIVE" />
-          <ReferentialConstraint>
-            <Principal Role="DRIVER">
-              <PropertyRef Name="DRIVER_ID" />
-            </Principal>
-            <Dependent Role="DRIVE">
-              <PropertyRef Name="DRIVER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GUIDE_GUIDE_TOUR_ID">
-          <End Type="Self.TOUR" Multiplicity="1" Role="TOUR" />
-          <End Type="Self.GUIDE" Multiplicity="*" Role="GUIDE" />
-          <ReferentialConstraint>
-            <Principal Role="TOUR">
-              <PropertyRef Name="TOUR_ID" />
-            </Principal>
-            <Dependent Role="GUIDE">
-              <PropertyRef Name="TOUR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GUIDE_GUIDE2_GUIDER">
-          <End Type="Self.GUIDER" Multiplicity="1" Role="GUIDER" />
-          <End Type="Self.GUIDE" Multiplicity="*" Role="GUIDE" />
-          <ReferentialConstraint>
-            <Principal Role="GUIDER">
-              <PropertyRef Name="GUIDER_ID" />
-            </Principal>
-            <Dependent Role="GUIDE">
-              <PropertyRef Name="GUIDER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SERVICES_SERVICES_PROGRAM">
-          <End Type="Self.PROGRAM" Multiplicity="1" Role="PROGRAM" />
-          <End Type="Self.SERVICES" Multiplicity="*" Role="SERVICES" />
-          <ReferentialConstraint>
-            <Principal Role="PROGRAM">
-              <PropertyRef Name="PROGRAM_ID" />
-            </Principal>
-            <Dependent Role="SERVICES">
-              <PropertyRef Name="PROGRAM_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SERVICES_SERVICES2_SERVICEP">
-          <End Type="Self.SERVICEPROVIDER" Multiplicity="1" Role="SERVICEPROVIDER" />
-          <End Type="Self.SERVICES" Multiplicity="*" Role="SERVICES" />
-          <ReferentialConstraint>
-            <Principal Role="SERVICEPROVIDER">
-              <PropertyRef Name="SERVICE_ID" />
-            </Principal>
-            <Dependent Role="SERVICES">
-              <PropertyRef Name="SERVICE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TICKET_HOLD_TICK_CUSTOMER">
-          <End Type="Self.CUSTOMER" Multiplicity="0..1" Role="CUSTOMER" />
-          <End Type="Self.TICKET" Multiplicity="*" Role="TICKET" />
-          <ReferentialConstraint>
-            <Principal Role="CUSTOMER">
-              <PropertyRef Name="CUSTOMER_ID" />
-            </Principal>
-            <Dependent Role="TICKET">
-              <PropertyRef Name="CUSTOMER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TICKET_TICKET_TOUR_ID">
-          <End Type="Self.TOUR" Multiplicity="1" Role="TOUR" />
-          <End Type="Self.TICKET" Multiplicity="*" Role="TICKET" />
-          <ReferentialConstraint>
-            <Principal Role="TOUR">
-              <PropertyRef Name="TOUR_ID" />
-            </Principal>
-            <Dependent Role="TICKET">
-              <PropertyRef Name="TOUR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TOUR_ID_DEPARTURE_DEPARTUR">
-          <End Type="Self.DEPARTURE" Multiplicity="1" Role="DEPARTURE" />
-          <End Type="Self.TOUR" Multiplicity="*" Role="TOUR" />
-          <ReferentialConstraint>
-            <Principal Role="DEPARTURE">
-              <PropertyRef Name="DEPARTURE_ID" />
-            </Principal>
-            <Dependent Role="TOUR">
-              <PropertyRef Name="DEPARTURE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TOUR_ID_DESTINATI_DESTINAT">
-          <End Type="Self.DESTINATION" Multiplicity="1" Role="DESTINATION" />
-          <End Type="Self.TOUR" Multiplicity="*" Role="TOUR" />
-          <ReferentialConstraint>
-            <Principal Role="DESTINATION">
-              <PropertyRef Name="DESTINATION_ID" />
-            </Principal>
-            <Dependent Role="TOUR">
-              <PropertyRef Name="DESTINATION_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TOUR_ID_TOUR_PROG_PROGRAM">
-          <End Type="Self.PROGRAM" Multiplicity="1" Role="PROGRAM" />
-          <End Type="Self.TOUR" Multiplicity="*" Role="TOUR" />
-          <ReferentialConstraint>
-            <Principal Role="PROGRAM">
-              <PropertyRef Name="PROGRAM_ID" />
-            </Principal>
-            <Dependent Role="TOUR">
-              <PropertyRef Name="PROGRAM_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TOUR_ID_TRANSPORT_TRANSPOR">
-          <End Type="Self.TRANSPORT" Multiplicity="0..1" Role="TRANSPORT" />
-          <End Type="Self.TOUR" Multiplicity="*" Role="TOUR" />
-          <ReferentialConstraint>
-            <Principal Role="TRANSPORT">
-              <PropertyRef Name="TRANS_ID" />
-            </Principal>
-            <Dependent Role="TOUR">
-              <PropertyRef Name="TRANS_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TOURORDE_REGISTRAT_TOUR_ID">
-          <End Type="Self.TOUR" Multiplicity="1" Role="TOUR" />
-          <End Type="Self.TOURORDER" Multiplicity="*" Role="TOURORDER" />
-          <ReferentialConstraint>
-            <Principal Role="TOUR">
-              <PropertyRef Name="TOUR_ID" />
-            </Principal>
-            <Dependent Role="TOURORDER">
-              <PropertyRef Name="TOUR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="APTravelTimeModelStoreContainer">
-          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DEPARTURE" EntityType="Self.DEPARTURE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DESTINATION" EntityType="Self.DESTINATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DRIVE" EntityType="Self.DRIVE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DRIVER" EntityType="Self.DRIVER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GUIDE" EntityType="Self.GUIDE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GUIDER" EntityType="Self.GUIDER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PROGRAM" EntityType="Self.PROGRAM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SERVICEPROVIDER" EntityType="Self.SERVICEPROVIDER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SERVICES" EntityType="Self.SERVICES" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TOURORDER" EntityType="Self.TOURORDER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRANSPORT" EntityType="Self.TRANSPORT" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CUSTOMER_MAKE_ORDE_TOURORDE" Association="Self.FK_CUSTOMER_MAKE_ORDE_TOURORDE">
-            <End EntitySet="TOURORDER" Role="TOURORDER" />
-            <End EntitySet="CUSTOMER" Role="CUSTOMER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DRIVE_DRIVE_TOUR_ID" Association="Self.FK_DRIVE_DRIVE_TOUR_ID">
-            <End EntitySet="TOUR" Role="TOUR" />
-            <End EntitySet="DRIVE" Role="DRIVE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DRIVE_DRIVE2_DRIVER" Association="Self.FK_DRIVE_DRIVE2_DRIVER">
-            <End EntitySet="DRIVER" Role="DRIVER" />
-            <End EntitySet="DRIVE" Role="DRIVE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GUIDE_GUIDE_TOUR_ID" Association="Self.FK_GUIDE_GUIDE_TOUR_ID">
-            <End EntitySet="TOUR" Role="TOUR" />
-            <End EntitySet="GUIDE" Role="GUIDE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GUIDE_GUIDE2_GUIDER" Association="Self.FK_GUIDE_GUIDE2_GUIDER">
-            <End EntitySet="GUIDER" Role="GUIDER" />
-            <End EntitySet="GUIDE" Role="GUIDE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICES_SERVICES_PROGRAM" Association="Self.FK_SERVICES_SERVICES_PROGRAM">
-            <End EntitySet="PROGRAM" Role="PROGRAM" />
-            <End EntitySet="SERVICES" Role="SERVICES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICES_SERVICES2_SERVICEP" Association="Self.FK_SERVICES_SERVICES2_SERVICEP">
-            <End EntitySet="SERVICEPROVIDER" Role="SERVICEPROVIDER" />
-            <End EntitySet="SERVICES" Role="SERVICES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TICKET_HOLD_TICK_CUSTOMER" Association="Self.FK_TICKET_HOLD_TICK_CUSTOMER">
-            <End EntitySet="CUSTOMER" Role="CUSTOMER" />
-            <End EntitySet="TICKET" Role="TICKET" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TICKET_TICKET_TOUR_ID" Association="Self.FK_TICKET_TICKET_TOUR_ID">
-            <End EntitySet="TOUR" Role="TOUR" />
-            <End EntitySet="TICKET" Role="TICKET" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TOUR_ID_DEPARTURE_DEPARTUR" Association="Self.FK_TOUR_ID_DEPARTURE_DEPARTUR">
-            <End EntitySet="DEPARTURE" Role="DEPARTURE" />
-            <End EntitySet="TOUR" Role="TOUR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TOUR_ID_DESTINATI_DESTINAT" Association="Self.FK_TOUR_ID_DESTINATI_DESTINAT">
-            <End EntitySet="DESTINATION" Role="DESTINATION" />
-            <End EntitySet="TOUR" Role="TOUR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TOUR_ID_TOUR_PROG_PROGRAM" Association="Self.FK_TOUR_ID_TOUR_PROG_PROGRAM">
-            <End EntitySet="PROGRAM" Role="PROGRAM" />
-            <End EntitySet="TOUR" Role="TOUR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TOUR_ID_TRANSPORT_TRANSPOR" Association="Self.FK_TOUR_ID_TRANSPORT_TRANSPOR">
-            <End EntitySet="TRANSPORT" Role="TRANSPORT" />
-            <End EntitySet="TOUR" Role="TOUR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TOURORDE_REGISTRAT_TOUR_ID" Association="Self.FK_TOURORDE_REGISTRAT_TOUR_ID">
-            <End EntitySet="TOUR" Role="TOUR" />
-            <End EntitySet="TOURORDER" Role="TOURORDER" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="AP.TravelTimeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="APTravelTimeModelStoreContainer">
+    <EntitySet Name="CUSTOMERs" EntityType="AP.TravelTimeModel.Store.CUSTOMERs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEPARTUREs" EntityType="AP.TravelTimeModel.Store.DEPARTUREs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DESTINATIONs" EntityType="AP.TravelTimeModel.Store.DESTINATIONs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DRIVERs" EntityType="AP.TravelTimeModel.Store.DRIVERs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GUIDERs" EntityType="AP.TravelTimeModel.Store.GUIDERs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROGRAMs" EntityType="AP.TravelTimeModel.Store.PROGRAMs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SERVICEPROVIDERs" EntityType="AP.TravelTimeModel.Store.SERVICEPROVIDERs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TICKETs" EntityType="AP.TravelTimeModel.Store.TICKETs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TOURORDERs" EntityType="AP.TravelTimeModel.Store.TOURORDERs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TRANSPORTs" EntityType="AP.TravelTimeModel.Store.TRANSPORTs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TOURs" EntityType="AP.TravelTimeModel.Store.TOURs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SERVICES" EntityType="AP.TravelTimeModel.Store.SERVICES" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DRIVE1" EntityType="AP.TravelTimeModel.Store.DRIVE1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GUIDE1" EntityType="AP.TravelTimeModel.Store.GUIDE1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CUSTOMER_MAKE_ORDE_TOURORDE" Association="AP.TravelTimeModel.Store.FK_CUSTOMER_MAKE_ORDE_TOURORDE">
+      <End Role="TOURORDER" EntitySet="TOURORDERs" />
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_HOLD_TICK_CUSTOMER" Association="AP.TravelTimeModel.Store.FK_TICKET_HOLD_TICK_CUSTOMER">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="TICKET" EntitySet="TICKETs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SERVICES_PROGRAM" Association="AP.TravelTimeModel.Store.FK_SERVICES_PROGRAM">
+      <End Role="PROGRAM" EntitySet="PROGRAMs" />
+      <End Role="SERVICES" EntitySet="SERVICES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SERVICES_SERVICEPROVIDER" Association="AP.TravelTimeModel.Store.FK_SERVICES_SERVICEPROVIDER">
+      <End Role="SERVICEPROVIDER" EntitySet="SERVICEPROVIDERs" />
+      <End Role="SERVICES" EntitySet="SERVICES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOUR_ID_DEPARTURE_DEPARTUR1" Association="AP.TravelTimeModel.Store.FK_TOUR_ID_DEPARTURE_DEPARTUR1">
+      <End Role="DEPARTURE" EntitySet="DEPARTUREs" />
+      <End Role="TOUR" EntitySet="TOURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOUR_ID_DESTINATI_DESTINAT1" Association="AP.TravelTimeModel.Store.FK_TOUR_ID_DESTINATI_DESTINAT1">
+      <End Role="DESTINATION" EntitySet="DESTINATIONs" />
+      <End Role="TOUR" EntitySet="TOURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOUR_ID_TOUR_PROG_PROGRAM1" Association="AP.TravelTimeModel.Store.FK_TOUR_ID_TOUR_PROG_PROGRAM1">
+      <End Role="PROGRAM" EntitySet="PROGRAMs" />
+      <End Role="TOUR" EntitySet="TOURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_TICKET_TOUR_ID1" Association="AP.TravelTimeModel.Store.FK_TICKET_TICKET_TOUR_ID1">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="TICKET" EntitySet="TICKETs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOUR_ID_TRANSPORT_TRANSPOR1" Association="AP.TravelTimeModel.Store.FK_TOUR_ID_TRANSPORT_TRANSPOR1">
+      <End Role="TRANSPORT" EntitySet="TRANSPORTs" />
+      <End Role="TOUR" EntitySet="TOURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOURORDE_REGISTRAT_TOUR_ID1" Association="AP.TravelTimeModel.Store.FK_TOURORDE_REGISTRAT_TOUR_ID1">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="TOURORDER" EntitySet="TOURORDERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRIVE1_TOUR" Association="AP.TravelTimeModel.Store.FK_DRIVE1_TOUR">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="DRIVE1" EntitySet="DRIVE1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRIVE1_DRIVER" Association="AP.TravelTimeModel.Store.FK_DRIVE1_DRIVER">
+      <End Role="DRIVER" EntitySet="DRIVERs" />
+      <End Role="DRIVE1" EntitySet="DRIVE1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GUIDE1_TOUR" Association="AP.TravelTimeModel.Store.FK_GUIDE1_TOUR">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="GUIDE1" EntitySet="GUIDE1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GUIDE1_GUIDER" Association="AP.TravelTimeModel.Store.FK_GUIDE1_GUIDER">
+      <End Role="GUIDER" EntitySet="GUIDERs" />
+      <End Role="GUIDE1" EntitySet="GUIDE1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CUSTOMERs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ORDER_ID" Type="decimal" Nullable="true" Precision="8" Scale="0" />
+    <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
+    <Property Name="PHONE" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="EMAIL" Type="char" Nullable="true" MaxLength="256" />
+    <Property Name="DOB" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DEPARTUREs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="DESCRIPTION" Type="varchar(max)" Nullable="true" />
+    <Property Name="ADDRESS" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DESTINATIONs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="DRIVERs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
+    <Property Name="AGE" Type="int" Nullable="true" />
+    <Property Name="GENDER" Type="char" Nullable="true" MaxLength="1" />
+    <Property Name="PERSONALID" Type="decimal" Nullable="true" Precision="8" Scale="0" />
+  </EntityType>
+  <EntityType Name="GUIDERs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
+    <Property Name="AGE" Type="int" Nullable="true" />
+    <Property Name="PERSONALID" Type="decimal" Nullable="true" Precision="8" Scale="0" />
+    <Property Name="GENDER" Type="char" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="PROGRAMs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="DETAILS" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SERVICEPROVIDERs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="TYPE" Type="varchar(max)" Nullable="true" />
+    <Property Name="COMPANYNAME" Type="varchar(max)" Nullable="true" />
+    <Property Name="CONTACTNAME" Type="char" Nullable="true" MaxLength="256" />
+    <Property Name="PHONE" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="ADDRESS" Type="varchar(max)" Nullable="true" />
+    <Property Name="MOREINFO" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TICKETs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="CUSTOMER_ID" Type="decimal" Nullable="true" Precision="8" Scale="0" />
+    <Property Name="TOUR_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="SEETNO" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TOURORDERs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="TOUR_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="DATE" Type="datetime" Nullable="true" />
+    <Property Name="NUMOFPEOPLE" Type="int" Nullable="true" />
+    <Property Name="TOTALAMOUNT" Type="float" Nullable="true" />
+    <Property Name="STATUS" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TRANSPORTs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="TYPE" Type="varchar(max)" Nullable="true" />
+    <Property Name="MOREINFO" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TOURs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
+    <Property Name="DEPARTURE_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="PROGRAM_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="DESTINATION_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="TRANS_ID" Type="decimal" Nullable="true" Precision="8" Scale="0" />
+    <Property Name="FROM" Type="datetime" Nullable="true" />
+    <Property Name="TO" Type="datetime" Nullable="true" />
+    <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
+    <Property Name="DESCRIPTION" Type="varchar(max)" Nullable="true" />
+    <Property Name="PRICE" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SERVICES">
+    <Key>
+      <PropertyRef Name="PROGRAMs_ID" />
+      <PropertyRef Name="SERVICEPROVIDERs_ID" />
+    </Key>
+    <Property Name="PROGRAMs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="SERVICEPROVIDERs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+  </EntityType>
+  <EntityType Name="DRIVE1">
+    <Key>
+      <PropertyRef Name="TOURs_ID" />
+      <PropertyRef Name="DRIVERs_ID" />
+    </Key>
+    <Property Name="TOURs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="DRIVERs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+  </EntityType>
+  <EntityType Name="GUIDE1">
+    <Key>
+      <PropertyRef Name="TOURs_ID" />
+      <PropertyRef Name="GUIDERs_ID" />
+    </Key>
+    <Property Name="TOURs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="GUIDERs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+  </EntityType>
+  <Association Name="FK_CUSTOMER_MAKE_ORDE_TOURORDE">
+    <End Role="TOURORDER" Type="AP.TravelTimeModel.Store.TOURORDERs" Multiplicity="0..1" />
+    <End Role="CUSTOMER" Type="AP.TravelTimeModel.Store.CUSTOMERs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOURORDER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CUSTOMER">
+        <PropertyRef Name="ORDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_HOLD_TICK_CUSTOMER">
+    <End Role="CUSTOMER" Type="AP.TravelTimeModel.Store.CUSTOMERs" Multiplicity="0..1" />
+    <End Role="TICKET" Type="AP.TravelTimeModel.Store.TICKETs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOUR_ID_DEPARTURE_DEPARTUR1">
+    <End Role="DEPARTURE" Type="AP.TravelTimeModel.Store.DEPARTUREs" Multiplicity="1" />
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTURE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOUR">
+        <PropertyRef Name="DEPARTURE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOUR_ID_DESTINATI_DESTINAT1">
+    <End Role="DESTINATION" Type="AP.TravelTimeModel.Store.DESTINATIONs" Multiplicity="1" />
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOUR">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOUR_ID_TOUR_PROG_PROGRAM1">
+    <End Role="PROGRAM" Type="AP.TravelTimeModel.Store.PROGRAMs" Multiplicity="1" />
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROGRAM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOUR">
+        <PropertyRef Name="PROGRAM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_TICKET_TOUR_ID1">
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="1" />
+    <End Role="TICKET" Type="AP.TravelTimeModel.Store.TICKETs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="TOUR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOUR_ID_TRANSPORT_TRANSPOR1">
+    <End Role="TRANSPORT" Type="AP.TravelTimeModel.Store.TRANSPORTs" Multiplicity="0..1" />
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANSPORT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOUR">
+        <PropertyRef Name="TRANS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOURORDE_REGISTRAT_TOUR_ID1">
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="1" />
+    <End Role="TOURORDER" Type="AP.TravelTimeModel.Store.TOURORDERs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOURORDER">
+        <PropertyRef Name="TOUR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SERVICES_PROGRAM">
+    <End Role="PROGRAM" Type="AP.TravelTimeModel.Store.PROGRAMs" Multiplicity="1" />
+    <End Role="SERVICES" Type="AP.TravelTimeModel.Store.SERVICES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROGRAM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SERVICES">
+        <PropertyRef Name="PROGRAMs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SERVICES_SERVICEPROVIDER">
+    <End Role="SERVICES" Type="AP.TravelTimeModel.Store.SERVICES" Multiplicity="*" />
+    <End Role="SERVICEPROVIDER" Type="AP.TravelTimeModel.Store.SERVICEPROVIDERs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICEPROVIDER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SERVICES">
+        <PropertyRef Name="SERVICEPROVIDERs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRIVE1_TOUR">
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="1" />
+    <End Role="DRIVE1" Type="AP.TravelTimeModel.Store.DRIVE1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DRIVE1">
+        <PropertyRef Name="TOURs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRIVE1_DRIVER">
+    <End Role="DRIVE1" Type="AP.TravelTimeModel.Store.DRIVE1" Multiplicity="*" />
+    <End Role="DRIVER" Type="AP.TravelTimeModel.Store.DRIVERs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DRIVER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DRIVE1">
+        <PropertyRef Name="DRIVERs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GUIDE1_TOUR">
+    <End Role="TOUR" Type="AP.TravelTimeModel.Store.TOURs" Multiplicity="1" />
+    <End Role="GUIDE1" Type="AP.TravelTimeModel.Store.GUIDE1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GUIDE1">
+        <PropertyRef Name="TOURs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GUIDE1_GUIDER">
+    <End Role="GUIDE1" Type="AP.TravelTimeModel.Store.GUIDE1" Multiplicity="*" />
+    <End Role="GUIDER" Type="AP.TravelTimeModel.Store.GUIDERs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GUIDER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GUIDE1">
+        <PropertyRef Name="GUIDERs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AP.TravelTimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -577,7 +577,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DEPARTURE_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
           <Property Name="PROGRAM_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
           <Property Name="DESTINATION_ID" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
@@ -680,154 +680,153 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="APTravelTimeModelStoreContainer" CdmEntityContainer="TravelTimeEDM_Entities">
-          <EntitySetMapping Name="CUSTOMERs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.CUSTOMER">
-              <MappingFragment StoreEntitySet="CUSTOMER">
-                <ScalarProperty Name="ID" ColumnName="CUSTOMER_ID" />
-                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DEPARTUREs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.DEPARTURE">
-              <MappingFragment StoreEntitySet="DEPARTURE">
-                <ScalarProperty Name="ID" ColumnName="DEPARTURE_ID" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DESTINATIONs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.DESTINATION">
-              <MappingFragment StoreEntitySet="DESTINATION">
-                <ScalarProperty Name="ID" ColumnName="DESTINATION_ID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DRIVERs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.DRIVER">
-              <MappingFragment StoreEntitySet="DRIVER">
-                <ScalarProperty Name="ID" ColumnName="DRIVER_ID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="AGE" ColumnName="AGE" />
-                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
-                <ScalarProperty Name="PERSONALID" ColumnName="PERSONALID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GUIDERs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.GUIDER">
-              <MappingFragment StoreEntitySet="GUIDER">
-                <ScalarProperty Name="ID" ColumnName="GUIDER_ID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="AGE" ColumnName="AGE" />
-                <ScalarProperty Name="PERSONALID" ColumnName="PERSONALID" />
-                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PROGRAMs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.PROGRAM">
-              <MappingFragment StoreEntitySet="PROGRAM">
-                <ScalarProperty Name="ID" ColumnName="PROGRAM_ID" />
-                <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SERVICEPROVIDERs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.SERVICEPROVIDER">
-              <MappingFragment StoreEntitySet="SERVICEPROVIDER">
-                <ScalarProperty Name="ID" ColumnName="SERVICE_ID" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
-                <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
-                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
-                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-                <ScalarProperty Name="MOREINFO" ColumnName="MOREINFO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TICKETs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.TICKET">
-              <MappingFragment StoreEntitySet="TICKET">
-                <ScalarProperty Name="ID" ColumnName="TICKET_ID" />
-                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
-                <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
-                <ScalarProperty Name="SEETNO" ColumnName="SEETNO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TOURORDERs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.TOURORDER">
-              <MappingFragment StoreEntitySet="TOURORDER">
-                <ScalarProperty Name="ID" ColumnName="ORDER_ID" />
-                <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
-                <ScalarProperty Name="DATE" ColumnName="DATE" />
-                <ScalarProperty Name="NUMOFPEOPLE" ColumnName="NUMOFPEOPLE" />
-                <ScalarProperty Name="TOTALAMOUNT" ColumnName="TOTALAMOUNT" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRANSPORTs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.TRANSPORT">
-              <MappingFragment StoreEntitySet="TRANSPORT">
-                <ScalarProperty Name="ID" ColumnName="TRANS_ID" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="MOREINFO" ColumnName="MOREINFO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="SERVICES" TypeName="AP.TravelTimeModel.SERVICES" StoreEntitySet="SERVICES">
-            <EndProperty Name="PROGRAM">
-              <ScalarProperty Name="ID" ColumnName="PROGRAM_ID" />
-            </EndProperty>
-            <EndProperty Name="SERVICEPROVIDER">
-              <ScalarProperty Name="ID" ColumnName="SERVICE_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="TOURs">
-            <EntityTypeMapping TypeName="AP.TravelTimeModel.TOUR">
-              <MappingFragment StoreEntitySet="TOUR">
-                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="TO" ColumnName="TO" />
-                <ScalarProperty Name="FROM" ColumnName="FROM" />
-                <ScalarProperty Name="TRANS_ID" ColumnName="TRANS_ID" />
-                <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
-                <ScalarProperty Name="PROGRAM_ID" ColumnName="PROGRAM_ID" />
-                <ScalarProperty Name="DEPARTURE_ID" ColumnName="DEPARTURE_ID" />
-                <ScalarProperty Name="ID" ColumnName="TOUR_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="DRIVE1" TypeName="AP.TravelTimeModel.DRIVE1" StoreEntitySet="DRIVE">
-            <EndProperty Name="DRIVER">
-              <ScalarProperty Name="ID" ColumnName="DRIVER_ID" />
-            </EndProperty>
-            <EndProperty Name="TOUR">
-              <ScalarProperty Name="ID" ColumnName="TOUR_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="GUIDE1" TypeName="AP.TravelTimeModel.GUIDE1" StoreEntitySet="GUIDE">
-            <EndProperty Name="GUIDER">
-              <ScalarProperty Name="ID" ColumnName="GUIDER_ID" />
-            </EndProperty>
-            <EndProperty Name="TOUR">
-              <ScalarProperty Name="ID" ColumnName="TOUR_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="APTravelTimeModelStoreContainer" CdmEntityContainer="TravelTimeEDM_Entities">
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.CUSTOMER)">
+        <MappingFragment StoreEntitySet="CUSTOMERs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTUREs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.DEPARTURE)">
+        <MappingFragment StoreEntitySet="DEPARTUREs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESTINATIONs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.DESTINATION)">
+        <MappingFragment StoreEntitySet="DESTINATIONs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DRIVERs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.DRIVER)">
+        <MappingFragment StoreEntitySet="DRIVERs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="PERSONALID" ColumnName="PERSONALID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GUIDERs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.GUIDER)">
+        <MappingFragment StoreEntitySet="GUIDERs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="PERSONALID" ColumnName="PERSONALID" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROGRAMs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.PROGRAM)">
+        <MappingFragment StoreEntitySet="PROGRAMs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICEPROVIDERs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.SERVICEPROVIDER)">
+        <MappingFragment StoreEntitySet="SERVICEPROVIDERs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+          <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="MOREINFO" ColumnName="MOREINFO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.TICKET)">
+        <MappingFragment StoreEntitySet="TICKETs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+          <ScalarProperty Name="SEETNO" ColumnName="SEETNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOURORDERs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.TOURORDER)">
+        <MappingFragment StoreEntitySet="TOURORDERs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="NUMOFPEOPLE" ColumnName="NUMOFPEOPLE" />
+          <ScalarProperty Name="TOTALAMOUNT" ColumnName="TOTALAMOUNT" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANSPORTs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.TRANSPORT)">
+        <MappingFragment StoreEntitySet="TRANSPORTs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="MOREINFO" ColumnName="MOREINFO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOURs">
+      <EntityTypeMapping TypeName="IsTypeOf(AP.TravelTimeModel.TOUR)">
+        <MappingFragment StoreEntitySet="TOURs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DEPARTURE_ID" ColumnName="DEPARTURE_ID" />
+          <ScalarProperty Name="PROGRAM_ID" ColumnName="PROGRAM_ID" />
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+          <ScalarProperty Name="TRANS_ID" ColumnName="TRANS_ID" />
+          <ScalarProperty Name="FROM" ColumnName="FROM" />
+          <ScalarProperty Name="TO" ColumnName="TO" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SERVICES" TypeName="AP.TravelTimeModel.SERVICES" StoreEntitySet="SERVICES">
+      <EndProperty Name="PROGRAM">
+        <ScalarProperty Name="ID" ColumnName="PROGRAMs_ID" />
+      </EndProperty>
+      <EndProperty Name="SERVICEPROVIDER">
+        <ScalarProperty Name="ID" ColumnName="SERVICEPROVIDERs_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DRIVE1" TypeName="AP.TravelTimeModel.DRIVE1" StoreEntitySet="DRIVE1">
+      <EndProperty Name="TOUR">
+        <ScalarProperty Name="ID" ColumnName="TOURs_ID" />
+      </EndProperty>
+      <EndProperty Name="DRIVER">
+        <ScalarProperty Name="ID" ColumnName="DRIVERs_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GUIDE1" TypeName="AP.TravelTimeModel.GUIDE1" StoreEntitySet="GUIDE1">
+      <EndProperty Name="TOUR">
+        <ScalarProperty Name="ID" ColumnName="TOURs_ID" />
+      </EndProperty>
+      <EndProperty Name="GUIDER">
+        <ScalarProperty Name="ID" ColumnName="GUIDERs_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -841,7 +840,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
