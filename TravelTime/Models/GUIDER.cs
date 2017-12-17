@@ -11,6 +11,8 @@ namespace TravelTime.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class GUIDER : EntityBase
     {
@@ -19,7 +21,9 @@ namespace TravelTime.Models
         {
             this.TOURs = new HashSet<TOUR>();
         }
-    
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal ID { get; set; }
         public string NAME { get; set; }
         public Nullable<int> AGE { get; set; }

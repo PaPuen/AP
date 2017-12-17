@@ -124,7 +124,7 @@ GO
 
 -- Creating table 'DEPARTUREs'
 CREATE TABLE [dbo].[DEPARTUREs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0) IDENTITY(1,1) NOT NULL,
     [DESCRIPTION] varchar(max)  NULL,
     [ADDRESS] varchar(max)  NULL
 );
@@ -132,14 +132,14 @@ GO
 
 -- Creating table 'DESTINATIONs'
 CREATE TABLE [dbo].[DESTINATIONs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0) IDENTITY(1,1) NOT NULL,
     [NAME] char(256)  NULL
 );
 GO
 
 -- Creating table 'DRIVERs'
 CREATE TABLE [dbo].[DRIVERs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0) IDENTITY(1,1) NOT NULL,
     [NAME] char(256)  NULL,
     [AGE] int  NULL,
     [GENDER] char(1)  NULL,
@@ -149,7 +149,7 @@ GO
 
 -- Creating table 'GUIDERs'
 CREATE TABLE [dbo].[GUIDERs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0) IDENTITY(1,1) NOT NULL,
     [NAME] char(256)  NULL,
     [AGE] int  NULL,
     [PERSONALID] decimal(8,0)  NULL,
@@ -159,14 +159,14 @@ GO
 
 -- Creating table 'PROGRAMs'
 CREATE TABLE [dbo].[PROGRAMs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0)  IDENTITY(1,1) NOT NULL,
     [DETAILS] varchar(max)  NULL
 );
 GO
 
 -- Creating table 'SERVICEPROVIDERs'
 CREATE TABLE [dbo].[SERVICEPROVIDERs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0) IDENTITY(1,1) NOT NULL,
     [TYPE] varchar(max)  NULL,
     [COMPANYNAME] varchar(max)  NULL,
     [CONTACTNAME] char(256)  NULL,
@@ -178,7 +178,7 @@ GO
 
 -- Creating table 'TICKETs'
 CREATE TABLE [dbo].[TICKETs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0)  IDENTITY(1,1) NOT NULL,
     [CUSTOMER_ID] decimal(8,0)  NULL,
     [TOUR_ID] decimal(8,0)  NOT NULL,
     [SEETNO] int  NULL
@@ -187,7 +187,7 @@ GO
 
 -- Creating table 'TOURORDERs'
 CREATE TABLE [dbo].[TOURORDERs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0)  IDENTITY(1,1) NOT NULL,
     [TOUR_ID] decimal(8,0)  NOT NULL,
     [DATE] datetime  NULL,
     [NUMOFPEOPLE] int  NULL,
@@ -198,7 +198,7 @@ GO
 
 -- Creating table 'TRANSPORTs'
 CREATE TABLE [dbo].[TRANSPORTs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0)  IDENTITY(1,1) NOT NULL,
     [TYPE] varchar(max)  NULL,
     [MOREINFO] varchar(max)  NULL
 );
@@ -206,7 +206,7 @@ GO
 
 -- Creating table 'TOURs'
 CREATE TABLE [dbo].[TOURs] (
-    [ID] decimal(8,0)  NOT NULL,
+    [ID] decimal(8,0)  IDENTITY(1,1) NOT NULL,
     [DEPARTURE_ID] decimal(8,0)  NOT NULL,
     [PROGRAM_ID] decimal(8,0)  NOT NULL,
     [DESTINATION_ID] decimal(8,0)  NOT NULL,

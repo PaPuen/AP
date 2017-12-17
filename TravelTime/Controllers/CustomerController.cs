@@ -15,11 +15,9 @@ namespace TravelTime.Controllers
         {
            
         }
-        public override CUSTOMER Add(CUSTOMER entity)
-        {
-            //entity.CUSTOMER_ID = new Random().Next(50, 100000);
-
-            return base.Add(entity);
-        }
+        //public override CUSTOMER Add(CUSTOMER entity)
+        //{
+        //    return base.Add(entity);
+        //}
     }
 }

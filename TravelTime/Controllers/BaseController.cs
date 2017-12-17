@@ -21,7 +21,13 @@ namespace TravelTime.Controllers
             SaveChanges();
             return entity;
         }
-        
+
+        [HttpPost]
+        public virtual E FindById()
+        {
+            return Repostory.FindById(2);
+        }
+
         [HttpPut]
         public virtual E Update(E entity)
         {
@@ -35,13 +41,6 @@ namespace TravelTime.Controllers
         {
             return Repostory.SelectAll();
         }
-
-        //[HttpGet]
-        //public virtual E Find(decimal id)
-        //{
-        //    return GetAll().Find(e => e.getId() == id);
-
-        //}
 
         [HttpDelete]
         public void Delete(decimal id)

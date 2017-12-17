@@ -68,5 +68,10 @@ namespace TravelTime.Repositories
         {
             return dbSet.Where(expression);
         }
+
+        public E FindById(decimal id)
+        {
+            return dbSet.Find(id);
+        }
     }
 }

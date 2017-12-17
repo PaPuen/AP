@@ -14,6 +14,7 @@ namespace TravelTime.Repositories
     { 
         E Add(E entity);
         E Update(E entity);
+        E FindById(Decimal id);
         void Delete(E entity);
         void DeleteWithId(Decimal id);
         IList<E> SelectAll();
