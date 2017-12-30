@@ -11,9 +11,9 @@ namespace TravelTime.Models
     {
         public EntityBase() { }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal id;
-        public decimal getId() { return this.id; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public decimal id;
+        //public decimal getId() { return this.id; }
     }
 }

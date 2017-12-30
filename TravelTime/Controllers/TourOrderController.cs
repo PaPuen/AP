@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TravelTime.Models;
 using TravelTime.Repositories;
+using TravelTime.Models.CustomModels;
 
 namespace TravelTime.Controllers
 {
@@ -14,6 +15,16 @@ namespace TravelTime.Controllers
         public TourOrderController(IRepository<TOURORDER> Repository) : base(Repository)
         {
 
+        }
+        public override TOURORDER Add(TOURORDER entity)
+        {
+            entity.DATE = DateTime.Now;
+            return base.Add(entity);
+        }
+
+        public override ResultApiBase[] GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

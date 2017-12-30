@@ -12,7 +12,7 @@ namespace TravelTime
         {
             var cors = new EnableCorsAttribute("*", "*", "*");
             // Web API configuration and services
-            config.EnableCors();
+            config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -21,6 +21,10 @@ namespace TravelTime
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }

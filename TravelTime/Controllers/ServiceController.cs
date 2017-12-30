@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TravelTime.Models;
+using TravelTime.Models.CustomModels;
 using TravelTime.Repositories;
 
 namespace TravelTime.Controllers
@@ -14,6 +15,11 @@ namespace TravelTime.Controllers
         public ServiceController(IRepository<SERVICEPROVIDER> Repository) : base(Repository)
         {
 
+        }
+
+        public override ResultApiBase[] GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

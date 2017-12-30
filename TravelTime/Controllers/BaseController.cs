@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using TravelTime.Models;
+using TravelTime.Models.CustomModels;
 using TravelTime.Repositories;
 
 namespace TravelTime.Controllers
@@ -17,47 +18,59 @@ namespace TravelTime.Controllers
         [HttpPost]
         public virtual E Add(E entity)
         {
-            Repostory.Add(entity);
+            var obj = Repostory.Add(entity);
             SaveChanges();
-            return entity;
+            return obj;
         }
 
         [HttpPost]
-        public virtual E FindById()
+        public virtual List<E> AddCustomers(IList<E> entites)
         {
-            return Repostory.FindById(2);
+            var res = new List<E>();
+            foreach (E entity in entites)
+            {
+                var obj = Repostory.Add(entity);
+                SaveChanges();
+                res.Add(obj);
+            }
+            return res;
         }
 
         [HttpPut]
-        public virtual E Update(E entity)
+        public virtual E Find(decimal id)
         {
-            Repostory.Update(entity);
-            SaveChanges();
-            return entity;
+            return Repostory.Find(id);
         }
 
-        [HttpGet]
-        public virtual IList<E> GetAll()
+        [HttpPost]
+        public virtual E Update(E entity)
         {
-            return Repostory.SelectAll();
+            var obj = Repostory.Update(entity);
+            SaveChanges();
+            return obj;
+        }
+
+        [HttpPost]
+        public abstract ResultApiBase[] GetAll();
+      
+        [HttpGet]
+        public virtual List<E> SelectWithoutEager()
+        {
+            return Repostory.SelectWithoutEager();
         }
 
         [HttpDelete]
-        public void Delete(decimal id)
+        public E Delete(decimal id)
         {
-            Repostory.DeleteWithId(id);
+            var obj = Repostory.Delete(id);
             SaveChanges();
+            return obj;
         }
 
         public virtual void SaveChanges()
         {
             Repostory.SaveChanges();
         }
-
-        [HttpGet]
-        public string PING()
-        {
-            return this.GetType().ToString();
-        }
+        
     }
 }

@@ -170,6 +170,9 @@
     <Compile Include="Models\CUSTOMER.cs">
       <DependentUpon>TravelTimeEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomModels\ResultApiBase.cs" />
+    <Compile Include="Models\CustomModels\ProgramApiResult.cs" />
+    <Compile Include="Models\CustomModels\TourApiResult.cs" />
     <Compile Include="Models\DEPARTURE.cs">
       <DependentUpon>TravelTimeEDM.tt</DependentUpon>
     </Compile>

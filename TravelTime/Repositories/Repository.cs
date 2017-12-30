@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using TravelTime.Models;
 using System.Linq;
 
-
 namespace TravelTime.Repositories
 {
     public class Repository<E> : IRepository<E> 
@@ -23,19 +22,13 @@ namespace TravelTime.Repositories
 
         public E Add(E entity)
         {
-            dbSet.Add(entity);
-            return entity;
+            return dbSet.Add(entity);
         }
 
-        public void Delete(E entity)
+        public E Delete(decimal id)
         {
-            dbSet.Remove(entity);
-        }
-
-        public void DeleteWithId(decimal id)
-        {
-            var e = dbSet.First(o => o.id == id);
-            if (e != null) { dbSet.Remove(e); }
+            var obj = dbSet.Find(id);
+            return dbSet.Remove(obj);
         }
 
         public int GetCount()
@@ -48,28 +41,35 @@ namespace TravelTime.Repositories
             return dbcontext.SaveChanges();
         }
 
-        public IList<E> SelectAll()
+        public List<E> SelectAll()
         {
             return dbSet.ToList();
         }
 
-        public IList<E> SelectAll(Expression<Func<E, bool>> expression)
+        public List<E> SelectWithoutEager()
+        {
+            dbcontext.Configuration.LazyLoadingEnabled = false;
+            return dbSet.ToList();
+        }
+
+        public List<E> SelectAll(Expression<Func<E, bool>> expression)
         {
             return this.Where(expression).ToList();
         }
 
         public E Update(E entity)
         {
-            dbSet.Attach(entity);
-            return entity;
+            var obj = dbSet.Attach(entity);
+            dbcontext.Entry(entity).State = EntityState.Modified;
+            return obj;
         }
 
-        public IQueryable<E> Where(Expression<Func<E, bool>> expression)
+        public List<E> Where(Expression<Func<E, bool>> expression)
         {
-            return dbSet.Where(expression);
+            return dbSet.Where(expression).ToList();
         }
 
-        public E FindById(decimal id)
+        public E Find(decimal id)
         {
             return dbSet.Find(id);
         }

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TravelTime.Models;
+using TravelTime.Models.CustomModels;
 using TravelTime.Repositories;
 
 namespace TravelTime.Controllers
@@ -14,6 +15,17 @@ namespace TravelTime.Controllers
         public ProgramController(IRepository<PROGRAM> Repository) : base(Repository)
         {
 
+        }
+
+        public override ResultApiBase[] GetAll()
+        {
+            var data = Repostory.SelectAll();
+            var result = data.Select(e => new ProgramApiResult()
+            {
+                Id = e.ID,
+                Details = e.DETAILS
+            }).ToArray();
+            return result;
         }
     }
 }

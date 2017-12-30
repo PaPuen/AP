@@ -92,7 +92,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="8" Scale="0" />
     <Property Name="DESCRIPTION" Type="varchar(max)" Nullable="true" />
     <Property Name="ADDRESS" Type="varchar(max)" Nullable="true" />
   </EntityType>
@@ -100,14 +100,14 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="8" Scale="0" />
     <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
   </EntityType>
   <EntityType Name="DRIVERs">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="char" Nullable="true" MaxLength="256" />
     <Property Name="AGE" Type="int" Nullable="true" />
     <Property Name="GENDER" Type="char" Nullable="true" MaxLength="1" />
@@ -127,14 +127,14 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="8" Scale="0" />
     <Property Name="DETAILS" Type="varchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="SERVICEPROVIDERs">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
     <Property Name="TYPE" Type="varchar(max)" Nullable="true" />
     <Property Name="COMPANYNAME" Type="varchar(max)" Nullable="true" />
     <Property Name="CONTACTNAME" Type="char" Nullable="true" MaxLength="256" />
@@ -146,7 +146,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
     <Property Name="CUSTOMER_ID" Type="decimal" Nullable="true" Precision="8" Scale="0" />
     <Property Name="TOUR_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
     <Property Name="SEETNO" Type="int" Nullable="true" />
@@ -155,7 +155,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
     <Property Name="TOUR_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
     <Property Name="DATE" Type="datetime" Nullable="true" />
     <Property Name="NUMOFPEOPLE" Type="int" Nullable="true" />
@@ -166,7 +166,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
     <Property Name="TYPE" Type="varchar(max)" Nullable="true" />
     <Property Name="MOREINFO" Type="varchar(max)" Nullable="true" />
   </EntityType>
@@ -190,7 +190,7 @@
       <PropertyRef Name="PROGRAMs_ID" />
       <PropertyRef Name="SERVICEPROVIDERs_ID" />
     </Key>
-    <Property Name="PROGRAMs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="PROGRAMs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" StoreGeneratedPattern="Identity" />
     <Property Name="SERVICEPROVIDERs_ID" Type="decimal" Nullable="false" Precision="8" Scale="0" />
   </EntityType>
   <EntityType Name="DRIVE1">
@@ -387,9 +387,9 @@
           </Key>
           <Property Name="ID" Nullable="false" Precision="8" Scale="0" Type="Decimal" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ORDER_ID" Type="Decimal" Precision="8" Scale="0" />
-          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="DOB" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TOURORDER" Relationship="Self.FK_CUSTOMER_MAKE_ORDE_TOURORDE" FromRole="CUSTOMER" ToRole="TOURORDER" />
           <NavigationProperty Name="TICKETs" Relationship="Self.FK_TICKET_HOLD_TICK_CUSTOMER" FromRole="CUSTOMER" ToRole="TICKET" />
@@ -398,7 +398,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Scale="0" Precision="8" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_DEPARTURE_DEPARTUR1" FromRole="DEPARTURE" ToRole="TOUR" />
@@ -408,15 +408,15 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_DESTINATI_DESTINAT1" FromRole="DESTINATION" ToRole="TOUR" />
         </EntityType>
         <EntityType Name="DRIVER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int32" />
           <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="PERSONALID" Type="Decimal" Precision="8" Scale="0" />
@@ -427,7 +427,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="AGE" Type="Int32" />
           <Property Name="PERSONALID" Type="Decimal" Precision="8" Scale="0" />
           <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -437,7 +437,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DETAILS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SERVICEPROVIDERs" Relationship="Self.SERVICES" FromRole="PROGRAM" ToRole="SERVICEPROVIDER" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_TOUR_PROG_PROGRAM1" FromRole="PROGRAM" ToRole="TOUR" />
@@ -446,10 +446,10 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="COMPANYNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CONTACTNAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="CONTACTNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MOREINFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -459,7 +459,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CUSTOMER_ID" Type="Decimal" Precision="8" Scale="0" />
           <Property Name="TOUR_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="SEETNO" Type="Int32" />
@@ -470,7 +470,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TOUR_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
           <Property Name="DATE" Type="DateTime" Precision="3" />
           <Property Name="NUMOFPEOPLE" Type="Int32" />
@@ -483,7 +483,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MOREINFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TOURs" Relationship="AP.TravelTimeModel.FK_TOUR_ID_TRANSPORT_TRANSPOR1" FromRole="TRANSPORT" ToRole="TOUR" />
@@ -584,7 +584,7 @@
           <Property Name="TRANS_ID" Type="Decimal" Precision="8" Scale="0" />
           <Property Name="FROM" Type="DateTime" Precision="3" />
           <Property Name="TO" Type="DateTime" Precision="3" />
-          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PRICE" Type="Double" />
           <NavigationProperty Name="DEPARTURE" Relationship="AP.TravelTimeModel.FK_TOUR_ID_DEPARTURE_DEPARTUR1" FromRole="TOUR" ToRole="DEPARTURE" />
