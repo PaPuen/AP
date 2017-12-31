@@ -27,5 +27,9 @@ namespace TravelTime.Controllers
             }).ToArray();
             return result;
         }
+        public override ResultApiBase[] HotTours()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

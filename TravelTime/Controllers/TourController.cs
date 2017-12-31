@@ -17,11 +17,24 @@ namespace TravelTime.Controllers
         }
         public override TOUR Add(TOUR entity)
         {
-            if (entity.PROGRAM_ID == 0 && entity.PROGRAM != null)
-            {
-                new Repository<PROGRAM>().Add(new PROGRAM() { DETAILS = entity.PROGRAM.DETAILS});
-            }
             return base.Add(entity);
+        }
+        public override ResultApiBase Get(decimal id)
+        {
+            var e = Repostory.Find(id);
+            var result = new TourApiResult()
+            {
+                Departure = e.DEPARTURE.DESCRIPTION,
+                ID = e.ID,
+                Name = e.NAME,
+                Description = e.DESCRIPTION == null ? String.Empty : e.DESCRIPTION,
+                Programe = e.PROGRAM.DETAILS,
+                Destination = e.DESTINATION.NAME,
+                From = e.FROM == null ? string.Empty : e.FROM.Value.ToString("MM/dd/yyyy"),
+                To = e.TO == null ? string.Empty : e.TO.Value.ToString("MM/dd/yyyy"),
+                Price = e.PRICE
+            };
+            return result;
         }
         public override ResultApiBase[] GetAll()
         {
@@ -37,6 +50,20 @@ namespace TravelTime.Controllers
                 From = e.FROM == null ? string.Empty : e.FROM.Value.ToString("MM/dd/yyyy"),
                 To = e.TO == null ? string.Empty : e.TO.Value.ToString("MM/dd/yyyy"),
                 Price = e.PRICE
+            }).ToArray();
+            return result;
+        }
+        public override ResultApiBase[] HotTours()
+        {
+            var data = Repostory.SelectAll();
+            var result = data.GetRange(0, 3).Select(e => new HotTourResult()
+            {
+                ID = e.ID,
+                Name = e.NAME,
+                Description = e.DESCRIPTION == null ? String.Empty : e.DESCRIPTION,
+                Destination = e.DESTINATION.NAME,
+                From = e.FROM == null ? string.Empty : e.FROM.Value.ToString("MM/dd/yyyy"),
+                PhotoUrl = e.TRANSPORT.MOREINFO
             }).ToArray();
             return result;
         }

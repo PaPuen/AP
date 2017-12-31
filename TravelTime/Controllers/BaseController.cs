@@ -36,7 +36,7 @@ namespace TravelTime.Controllers
             return res;
         }
 
-        [HttpPut]
+        [HttpGet]
         public virtual E Find(decimal id)
         {
             return Repostory.Find(id);
@@ -52,6 +52,15 @@ namespace TravelTime.Controllers
 
         [HttpPost]
         public abstract ResultApiBase[] GetAll();
+
+        [HttpGet]
+        public virtual ResultApiBase Get(decimal id)
+        {
+            return null;
+        }
+
+        [HttpPost]
+        public abstract ResultApiBase[] HotTours();
       
         [HttpGet]
         public virtual List<E> SelectWithoutEager()

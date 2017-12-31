@@ -21,5 +21,9 @@ namespace TravelTime.Controllers
         {
             throw new NotImplementedException();
         }
+        public override ResultApiBase[] HotTours()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
