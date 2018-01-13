@@ -37,6 +37,12 @@ namespace TravelTime.Controllers
         }
 
         [HttpGet]
+        public virtual List<TICKET> Where(decimal id)
+        {
+            return null; 
+        }
+
+        [HttpGet]
         public virtual E Find(decimal id)
         {
             return Repostory.Find(id);
@@ -75,11 +81,13 @@ namespace TravelTime.Controllers
             SaveChanges();
             return obj;
         }
-
+        [HttpGet]
+        public virtual E DoneOrder(decimal id) {
+            return null;
+        }
         public virtual void SaveChanges()
         {
             Repostory.SaveChanges();
         }
-        
     }
 }

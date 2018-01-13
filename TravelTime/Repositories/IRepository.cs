@@ -18,6 +18,7 @@ namespace TravelTime.Repositories
         List<E> Where(Expression<Func<E, bool>> expression);
         int SaveChanges();
         
+        void GenerateTicket(TOURORDER order);
     }
 }
 

@@ -176,6 +176,7 @@
     <Compile Include="Models\CustomModels\ResultApiBase.cs" />
     <Compile Include="Models\CustomModels\ProgramApiResult.cs" />
     <Compile Include="Models\CustomModels\HotTourResult.cs" />
+    <Compile Include="Models\CustomModels\OrderResult.cs" />
     <Compile Include="Models\CustomModels\TourApiResult.cs" />
     <Compile Include="Models\DEPARTURE.cs">
       <DependentUpon>TravelTimeEDM.tt</DependentUpon>
@@ -224,7 +225,9 @@
       <DependentUpon>TravelTimeEDM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\TourOrderRepositoty.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\ITourOrderRepositoty.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />

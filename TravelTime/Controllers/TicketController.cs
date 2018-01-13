@@ -25,5 +25,8 @@ namespace TravelTime.Controllers
         {
             throw new NotImplementedException();
         }
+        public override List<TICKET> Where(decimal id) {
+            return Repostory.SelectAll().Where(e => e.CUSTOMER_ID == id).ToList();
+        }
     }
 }

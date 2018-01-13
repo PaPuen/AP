@@ -10,16 +10,14 @@ namespace TravelTime.Repositories
     public class Repository<E> : IRepository<E> 
     where E : EntityBase
     {
-        private TravelTimeEDM_Entities dbcontext;
-        private DbSet<E> dbSet;
+        protected TravelTimeEDM_Entities dbcontext;
+        protected DbSet<E> dbSet;
 
         public Repository()
         {
             dbcontext = dbcontext ?? new TravelTimeEDM_Entities();
             dbSet = dbcontext.Set<E>();
         }
-
-
         public E Add(E entity)
         {
             return dbSet.Add(entity);
@@ -54,6 +52,7 @@ namespace TravelTime.Repositories
 
         public List<E> SelectAll(Expression<Func<E, bool>> expression)
         {
+            dbcontext.Configuration.LazyLoadingEnabled = false;
             return this.Where(expression).ToList();
         }
 
@@ -72,6 +71,23 @@ namespace TravelTime.Repositories
         public E Find(decimal id)
         {
             return dbSet.Find(id);
+        }
+        public void GenerateTicket(TOURORDER order)
+        {
+            int i = 0;
+            var ticketRepo = dbcontext.Set<TICKET>();
+            do
+            {
+                var ticket = new TICKET()
+                {
+                    CUSTOMER_ID = order.CUSTOMERs.FirstOrDefault().ID,
+                    TOUR_ID = order.TOUR_ID,
+                };
+                ticketRepo.Add(ticket);
+                ticket.SEETNO = (int)ticket.ID;
+                i++;
+            }
+            while (i < order.NUMOFPEOPLE);
         }
     }
 }
